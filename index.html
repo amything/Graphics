@@ -221,9 +221,10 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
   .clients-track{
     display:flex;
     align-items:center;
+    justify-content:space-between;
     flex-wrap:nowrap;
+    width:100%;
     gap:2.6rem;
-    padding-right:2.6rem;
     flex-shrink:0;
     animation:none;
   }
@@ -239,9 +240,9 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
     flex:0 0 auto;
   }
   .clients img{
-    height:100px;
+    height:56px;
     width:auto;
-    max-width:170px;
+    max-width:190px;
     object-fit:contain;
     opacity:0.75;
     filter:grayscale(100%);
@@ -258,6 +259,8 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
       mask-image: linear-gradient(to right, transparent 0, #000 8vw, #000 92%, transparent 100%);
     }
     .clients-track{
+      justify-content:flex-start;
+      width:max-content;
       gap:2.4rem;
       padding-right:2.4rem;
       animation:clients-scroll 14s linear infinite;
