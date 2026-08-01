@@ -179,18 +179,39 @@
   footer{
     max-width:1280px; margin:0 auto;
     padding: 3.5rem 8vw 3rem;
-    display:flex; justify-content:space-between; align-items:flex-end;
+    display:flex; justify-content:space-between; align-items:flex-start;
     flex-wrap:wrap; gap:2rem;
     border-top:1px solid var(--line);
   }
   footer h2{ font-size:var(--h2); max-width:30ch; }
   footer .contact-links{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; font-family:var(--font-body); font-size:var(--p3); }
+  .hero-cta{
+    display:inline-flex; align-items:center; gap:1rem;
+    font-family:var(--font-body);
+    font-size:var(--p1); font-weight:500;
+    color:var(--heading);
+    cursor:pointer;
+  }
+  .hero-cta .dot{
+    width:40px; height:40px; border-radius:50%;
+    background:var(--coral);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff;
+    transition:transform 0.25s ease;
+  }
+  .hero-cta:hover .dot{ transform:translateX(4px); }
   footer .contact-email{ color:var(--coral); font-size:var(--p2); font-weight:500; }
   footer .contact-email:hover{ opacity:0.8; }
-  .foot-note{
-    max-width:1280px; margin:0 auto; padding: 0 8vw 3rem;
-    font-family:var(--font-body); font-size:var(--p3); color:var(--text-faint);
+  footer .social-icons{ display:flex; align-items:center; gap:1.1rem; }
+  footer .social-icons a{
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:50%;
+    color:var(--heading);
+    border:1px solid var(--line);
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
+  footer .social-icons a:hover{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  footer .foot-note{ width:100%; margin-top:3rem; font-family:var(--font-body); font-size:var(--p3); color:var(--text-faint); letter-spacing:0.02em; }
 
   @media (max-width: 860px){
     .topnav{ padding:2rem 6vw 0; }
@@ -265,6 +286,31 @@
   </div>
 
 </main>
+
+<footer id="contact">
+  <h2>From concept to creation,<br>let's make it happen.</h2>
+  <div class="contact-links">
+    <a class="hero-cta footer-connect" href="mailto:amruta.inbox@gmail.com">
+      Let's connect
+    </a>
+    <a class="contact-email" href="mailto:amruta.inbox@gmail.com">amruta.inbox@gmail.com</a>
+    <div class="social-icons">
+      <a href="mailto:amruta.inbox@gmail.com" aria-label="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/hello-amrutajadhav/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.5 8.5H3.5V20H6.5V8.5Z" fill="currentColor"/><circle cx="5" cy="4.8" r="1.9" fill="currentColor"/><path d="M9.5 8.5H12.4V10.1C12.9 9.1 14.2 8.2 16 8.2C19.3 8.2 20.5 10.2 20.5 13.6V20H17.5V14.2C17.5 12.5 16.9 11.3 15.4 11.3C14.2 11.3 13.5 12.1 13.2 12.9C13.1 13.2 13.1 13.6 13.1 14V20H10.1C10.1 20 10.1 9.2 9.5 8.5Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.instagram.com/helloamything/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10.3 9.3v5.4l4.7-2.7-4.7-2.7Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="foot-note">© 2026 Amruta J. Australia.</div>
+</footer>
 
 </body>
 </html>
