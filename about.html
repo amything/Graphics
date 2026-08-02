@@ -143,18 +143,28 @@
   .interests h3 .coffee-icon{ font-size:0.8em; color:var(--coral); line-height:1; }
 
   .interests-grid{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    position:relative;
   }
   .ig-card{
     position:relative;
-    aspect-ratio: 180 / 420;
+    flex:0 0 auto;
+    width:180px;
+    height:420px;
     border-radius:14px;
     overflow:hidden;
     background:var(--surface-2);
     border:1px solid var(--line);
+    cursor:pointer;
+    will-change:width, height;
   }
+  .ig-card.animated{
+    transition:width 0.35s cubic-bezier(.44,0,.56,1), height 0.35s cubic-bezier(.44,0,.56,1), filter 0.35s ease, opacity 0.35s ease;
+  }
+  .ig-card.blurred{ filter:blur(4px); opacity:0.55; }
   .ig-card img{ width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:2; }
   .ig-card .ig-label{
     position:absolute; inset:0; z-index:1;
@@ -162,6 +172,12 @@
     color:var(--text-faint); font-size:var(--p3); text-align:center; padding:0.6rem;
     background:var(--surface-2);
   }
+  .ig-backdrop{
+    position:absolute; inset:-4rem -8vw;
+    z-index:0;
+    display:none;
+  }
+  .ig-backdrop.active{ display:block; }
 
   /* ---------- Footer (shared with homepage) ---------- */
   footer{
@@ -192,7 +208,8 @@
     .about-hero{ grid-template-columns:1fr; gap:2.5rem; padding:3rem 6vw 3.5rem; }
     .about-photo{ margin-top:0; }
     .interests{ padding:0 6vw 4rem; }
-    .interests-grid{ grid-template-columns: repeat(2, 1fr); gap:16px; }
+    .interests-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+    .ig-card{ width:auto; height:auto; aspect-ratio:180/420; cursor:default; }
     footer{ align-items:flex-start; padding:3rem 6vw 2.5rem; }
     footer .contact-links{ align-items:flex-start; }
   }
@@ -227,20 +244,21 @@
 
 <section class="interests">
   <h3>What I do when I'm not working? <span class="coffee-icon">☕</span></h3>
-  <div class="interests-grid">
-    <div class="ig-card">
+  <div class="interests-grid" id="interestsGrid">
+    <div class="ig-backdrop" id="igBackdrop"></div>
+    <div class="ig-card" data-index="0">
       <img src="gallery-1.jpg" alt="Gallery photo 1" onerror="this.style.display='none'">
       <div class="ig-label">Photo 1 — replace src="gallery-1.jpg"</div>
     </div>
-    <div class="ig-card">
+    <div class="ig-card" data-index="1">
       <img src="gallery-2.jpg" alt="Gallery photo 2" onerror="this.style.display='none'">
       <div class="ig-label">Photo 2 — replace src="gallery-2.jpg"</div>
     </div>
-    <div class="ig-card">
+    <div class="ig-card" data-index="2">
       <img src="gallery-3.jpg" alt="Gallery photo 3" onerror="this.style.display='none'">
       <div class="ig-label">Photo 3 — replace src="gallery-3.jpg"</div>
     </div>
-    <div class="ig-card">
+    <div class="ig-card" data-index="3">
       <img src="gallery-4.jpg" alt="Gallery photo 4" onerror="this.style.display='none'">
       <div class="ig-label">Photo 4 — replace src="gallery-4.jpg"</div>
     </div>
@@ -268,6 +286,126 @@
   </div>
   <div class="foot-note">© 2026 Amruta J — Brisbane, Australia</div>
 </footer>
+
+<script>
+  (function(){
+    const grid = document.getElementById('interestsGrid');
+    const backdrop = document.getElementById('igBackdrop');
+    if(!grid) return;
+
+    const cards = Array.from(grid.querySelectorAll('.ig-card'));
+    const n = cards.length;
+
+    const collapsedWidth = 180;
+    const hoverWidth = 230;
+    const collapsedHeight = 420;
+    const hoverHeight = 450;
+    const openSize = 460;
+    const gap = 16;
+    const influence = 220;
+
+    let target = cards.map(() => 0);
+    let current = cards.map(() => 0);
+    let rafId = 0;
+    let openIndex = null;
+
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+      && window.matchMedia('(min-width: 861px)').matches;
+
+    function applySizes(){
+      cards.forEach((card, i) => {
+        if(openIndex !== null){
+          if(i === openIndex){
+            card.style.width = openSize + 'px';
+            card.style.height = openSize + 'px';
+          } else {
+            card.style.width = collapsedWidth + 'px';
+            card.style.height = collapsedHeight + 'px';
+          }
+          card.classList.toggle('blurred', i !== openIndex);
+          return;
+        }
+        const f = current[i] || 0;
+        card.style.width = (collapsedWidth + (hoverWidth - collapsedWidth) * f) + 'px';
+        card.style.height = (collapsedHeight + (hoverHeight - collapsedHeight) * f) + 'px';
+        card.classList.remove('blurred');
+      });
+    }
+
+    function loop(){
+      let moving = false;
+      for(let i = 0; i < n; i++){
+        const d = target[i] - current[i];
+        if(Math.abs(d) > 0.001){
+          current[i] += d * 0.2;
+          moving = true;
+        } else {
+          current[i] = target[i];
+        }
+      }
+      applySizes();
+      rafId = moving ? requestAnimationFrame(loop) : 0;
+    }
+
+    function startLoop(){
+      if(!rafId) rafId = requestAnimationFrame(loop);
+    }
+
+    function setTargetFromCursor(clientX){
+      const rect = grid.getBoundingClientRect();
+      const cx = clientX - rect.left;
+      const totalBase = n * collapsedWidth + (n - 1) * gap;
+      const startX = (rect.width - totalBase) / 2;
+      target = cards.map((_, i) => {
+        const center = startX + i * (collapsedWidth + gap) + collapsedWidth / 2;
+        const dist = Math.abs(cx - center);
+        const f = Math.max(0, 1 - dist / influence);
+        return f * f * (3 - 2 * f); // smoothstep
+      });
+      startLoop();
+    }
+
+    if(canHover){
+      grid.addEventListener('mousemove', (e) => {
+        if(openIndex !== null) return;
+        setTargetFromCursor(e.clientX);
+      });
+      grid.addEventListener('mouseleave', () => {
+        if(openIndex !== null) return;
+        target = cards.map(() => 0);
+        startLoop();
+      });
+    }
+
+    function openCard(i){
+      openIndex = i;
+      cards.forEach(c => c.classList.add('animated'));
+      backdrop.classList.add('active');
+      applySizes();
+    }
+
+    function closeCard(){
+      openIndex = null;
+      target = cards.map(() => 0);
+      current = cards.map(() => 0);
+      applySizes();
+      backdrop.classList.remove('active');
+      setTimeout(() => cards.forEach(c => c.classList.remove('animated')), 380);
+    }
+
+    cards.forEach((card, i) => {
+      card.addEventListener('click', () => {
+        if(!canHover) return;
+        if(openIndex === i) closeCard();
+        else openCard(i);
+      });
+    });
+
+    backdrop.addEventListener('click', closeCard);
+
+    applySizes();
+  })();
+</script>
 
 </body>
 </html>
