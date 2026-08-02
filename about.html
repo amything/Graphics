@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amruta J — About</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'Bricolage Grotesque Condensed';
+    src: url('BricolageGrotesque48ptCondensed-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  :root{
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --surface-2: #F1F0EE;
+    --heading: #1D1D1D;
+    --body-text: #4A4948;
+    --text-faint: #8C8B89;
+    --coral: #FF5C4D;
+    --coral-dim: rgba(255,92,77,0.12);
+    --line: rgba(29,29,29,0.09);
+
+    --font-heading: 'Bricolage Grotesque Condensed', 'Bricolage Grotesque', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --h1: 56px;
+    --h2: 42px;
+    --h3: 30px;
+    --h4: 24px;
+    --h5: 18px;
+    --p1: 22px;
+    --p2: 16px;
+    --p3: 14px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--body-text);
+    font-family:var(--font-body);
+    font-size:var(--p2);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    cursor: url('coffee-cursor.svg') 4 12, auto;
+  }
+  a, button, [role="button"], input, textarea, select, label{
+    cursor: url('coffee-cursor.svg') 4 12, pointer;
+  }
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--coral); color:#fff;}
+  :focus-visible{ outline:2px solid var(--coral); outline-offset:3px; }
+
+  h1,h2,h3,h4,h5{
+    font-family:var(--font-heading);
+    font-weight:600;
+    color:var(--heading);
+    letter-spacing:0.01em;
+    line-height:1.15;
+  }
+
+  /* ---------- Top nav ---------- */
+  .topnav{
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:1280px;
+    margin:0 auto;
+    padding: 3.5rem 8vw 0;
+  }
+  .logo-text{
+    font-family:var(--font-heading);
+    font-size:var(--h3);
+    font-weight:600;
+    color:var(--coral);
+    letter-spacing:0.01em;
+  }
+  .topnav nav a{
+    font-family:var(--font-body);
+    font-size:var(--p2); font-weight:500; color:var(--heading);
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition:border-color 0.2s ease;
+  }
+  .topnav nav a:hover{ border-color:var(--coral); color:var(--coral); }
+
+  /* ---------- About hero (photo + bio) ---------- */
+  .about-hero{
+    max-width:1280px; margin:0 auto;
+    padding:4rem 8vw 5rem;
+    display:grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap:4rem;
+    align-items:start;
+  }
+  .about-photo{
+    position:relative;
+    aspect-ratio: 4/3.3;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    margin-top:calc(var(--h3) * 1.15 + 1.5rem);
+  }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:2; }
+  .about-photo .ph-label{
+    position:absolute; inset:0; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-faint); font-size:var(--p3); text-align:center; padding:1rem;
+  }
+
+  .about-text h2{ font-size:var(--h3); margin-bottom:1.5rem; }
+  .about-text p{
+    font-family:var(--font-body); color:var(--body-text); font-size:var(--p2);
+    line-height:1.75; margin-bottom:1.3rem; max-width:56ch;
+  }
+
+  /* ---------- Sticky photo (desktop only) ----------
+     Keeps the photo pinned in the viewport while the
+     longer bio text column scrolls past it. */
+  @media (min-width: 861px){
+    .about-photo{
+      position: sticky;
+      top: 3rem;          /* distance from top of viewport where it "catches" */
+      align-self: start;  /* stops the grid from stretching it to match text height */
+    }
+  }
+
+  /* ---------- Interests strip — matches homepage grid ---------- */
+  .interests{
+    max-width:1280px; margin:0 auto;
+    padding:0 8vw 6rem;
+  }
+  .interests h3{
+    display:flex; align-items:center; gap:0.6rem;
+    font-size:var(--h4); margin-bottom:1.8rem;
+  }
+  .interests h3 .coffee-icon{ font-size:0.8em; color:var(--coral); line-height:1; }
+
+  .interests-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:24px;
+  }
+  .ig-card{
+    position:relative;
+    aspect-ratio: 180 / 420;
+    border-radius:14px;
+    overflow:hidden;
+    background:var(--surface-2);
+    border:1px solid var(--line);
+  }
+  .ig-card img{ width:100%; height:100%; object-fit:cover; display:block; position:relative; z-index:2; }
+  .ig-card .ig-label{
+    position:absolute; inset:0; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-faint); font-size:var(--p3); text-align:center; padding:0.6rem;
+    background:var(--surface-2);
+  }
+
+  /* ---------- Footer (shared with homepage) ---------- */
+  footer{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 3.5rem 8vw 3rem;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:2rem;
+    border-top:1px solid var(--line);
+  }
+  footer h2{ font-size:var(--h2); max-width:30ch; }
+  footer .contact-links{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; font-family:var(--font-body); font-size:var(--p3); }
+  footer .contact-email{ color:var(--coral); font-size:var(--p2); font-weight:500; }
+  footer .contact-email:hover{ opacity:0.8; }
+  footer .social-icons{ display:flex; align-items:center; gap:1.1rem; }
+  footer .social-icons a{
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:50%;
+    color:var(--heading);
+    border:1px solid var(--line);
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  footer .social-icons a:hover{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  footer .foot-note{ width:100%; margin-top:3rem; font-family:var(--font-body); font-size:var(--p3); color:var(--text-faint); letter-spacing:0.02em; }
+
+  @media (max-width: 860px){
+    .topnav{ padding:2rem 6vw 0; }
+    .about-hero{ grid-template-columns:1fr; gap:2.5rem; padding:3rem 6vw 3.5rem; }
+    .about-photo{ margin-top:0; }
+    .interests{ padding:0 6vw 4rem; }
+    .interests-grid{ grid-template-columns: repeat(2, 1fr); gap:16px; }
+    footer{ align-items:flex-start; padding:3rem 6vw 2.5rem; }
+    footer .contact-links{ align-items:flex-start; }
+  }
+
+  @media (max-width: 500px){
+    .interests-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="logo-text" href="index.html">Amruta J</a>
+  <nav><a href="index.html">Home</a></nav>
+</div>
+
+<section class="about-hero">
+  <div class="about-photo">
+    <img src="amrutaj.jpg" alt="Amruta portrait" onerror="this.style.display='none'">
+    <div class="ph-label">Photo — replace src="amrutaj.jpg"</div>
+  </div>
+
+  <div class="about-text">
+    <h2>More about me...</h2>
+    <p>I was lucky to discover my love for design early in life, and I still feel the same excitement every time I create something new.</p>
+    <p>I'm a creator at heart, driven by curiosity, craft, and the belief that great design sits at the intersection of beauty, purpose, and usability. My journey began in visual design and evolved into UX and product design, allowing me to bring together creativity, strategy, and problem-solving.</p>
+    <p>Based on the Gold Coast, I design digital experiences that are thoughtful, intuitive, and built around real human needs. I've worked across startups, agencies, and global organisations, partnering with teams to transform ideas into meaningful products and experiences.</p>
+    <p>My background in Applied Arts, graphic design, branding, and marketing gives me a unique perspective. I don't just design interfaces; I think about the bigger story, the user journey, and how every detail contributes to the experience.</p>
+    <p>Whether I'm shaping a new product, refining an experience, or building a visual identity, I enjoy turning complex problems into simple, engaging solutions.</p>
+  </div>
+</section>
+
+<section class="interests">
+  <h3>What I do when I'm not working? <span class="coffee-icon">☕</span></h3>
+  <div class="interests-grid">
+    <div class="ig-card">
+      <img src="gallery-1.jpg" alt="Gallery photo 1" onerror="this.style.display='none'">
+      <div class="ig-label">Photo 1 — replace src="gallery-1.jpg"</div>
+    </div>
+    <div class="ig-card">
+      <img src="gallery-2.jpg" alt="Gallery photo 2" onerror="this.style.display='none'">
+      <div class="ig-label">Photo 2 — replace src="gallery-2.jpg"</div>
+    </div>
+    <div class="ig-card">
+      <img src="gallery-3.jpg" alt="Gallery photo 3" onerror="this.style.display='none'">
+      <div class="ig-label">Photo 3 — replace src="gallery-3.jpg"</div>
+    </div>
+    <div class="ig-card">
+      <img src="gallery-4.jpg" alt="Gallery photo 4" onerror="this.style.display='none'">
+      <div class="ig-label">Photo 4 — replace src="gallery-4.jpg"</div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>From concept to creation,<br>let's make it happen</h2>
+  <div class="contact-links">
+    <a class="contact-email" href="mailto:amruta.inbox@gmail.com">amruta.inbox@gmail.com</a>
+    <div class="social-icons">
+      <a href="mailto:amruta.inbox@gmail.com" aria-label="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/hello-amrutajadhav/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.5 8.5H3.5V20H6.5V8.5Z" fill="currentColor"/><circle cx="5" cy="4.8" r="1.9" fill="currentColor"/><path d="M9.5 8.5H12.4V10.1C12.9 9.1 14.2 8.2 16 8.2C19.3 8.2 20.5 10.2 20.5 13.6V20H17.5V14.2C17.5 12.5 16.9 11.3 15.4 11.3C14.2 11.3 13.5 12.1 13.2 12.9C13.1 13.2 13.1 13.6 13.1 14V20H10.1C10.1 20 10.1 9.2 9.5 8.5Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.instagram.com/helloamything/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10.3 9.3v5.4l4.7-2.7-4.7-2.7Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="foot-note">© 2026 Amruta J — Brisbane, Australia</div>
+</footer>
+
+</body>
+</html>
