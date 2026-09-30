@@ -95,6 +95,13 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
   .topnav nav a.current{ color:var(--coral); border-color:var(--coral); }
   .topnav nav a:hover{ border-color:var(--coral); color:var(--coral); }
 
+  /* Resume link: small arrow shows it opens in a new tab */
+  .topnav nav a.nav-resume{
+    display:inline-flex; align-items:center; gap:0.35rem;
+  }
+  .topnav nav a.nav-resume svg{ transition:transform 0.2s ease; }
+  .topnav nav a.nav-resume:hover svg{ transform:translate(2px,-2px); }
+
   /* ---------- Hero ---------- */
   .hero{
     padding: 6rem 8vw 2rem;
@@ -456,6 +463,7 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
 
   @media (max-width: 860px){
     .topnav{ padding:2rem 6vw 0; }
+    .topnav nav{ gap:1.4rem; }
     .hero{ padding:4rem 6vw 3rem; }
     main{ padding:0 6vw; }
     .testimonials{ padding:4.5rem 6vw; }
@@ -476,6 +484,12 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
   <div class="logo-text">Amruta J</div>
   <nav>
     <a href="about.html">About Me</a>
+    <a href="Amruta_J_Graphic_Designer.pdf" target="_blank" rel="noopener" class="nav-resume" aria-label="Resume (opens in a new tab)">
+      Resume
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </nav>
 </div>
 
@@ -612,12 +626,12 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
 <footer id="contact">
   <h2>From concept to creation,<br>let's make it happen.</h2>
   <div class="contact-links">
-    <a class="hero-cta footer-connect" href="mailto:amruta.inbox@gmail.com">
+    <a class="hero-cta footer-connect" href="mailto:amrutakj.inbox@gmail.com">
       Let's connect
     </a>
-    <a class="contact-email" href="mailto:amruta.inbox@gmail.com">amruta.inbox@gmail.com</a>
+    <a class="contact-email" href="mailto:amrutakj.inbox@gmail.com">amrutakj.inbox@gmail.com</a>
     <div class="social-icons">
-      <a href="mailto:amruta.inbox@gmail.com" aria-label="Email">
+      <a href="mailto:amrutakj.inbox@gmail.com" aria-label="Email">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <a href="https://www.linkedin.com/in/hello-amrutajadhav/" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -702,7 +716,7 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
   }
 
   // ---------- Press "C" (or click the hint) to copy email address ----------
-  const EMAIL = 'amruta.inbox@gmail.com';
+  const EMAIL = 'amrutakj.inbox@gmail.com';
   const toast = document.getElementById('emailToast');
   const toastText = document.getElementById('toastText');
   const copyHint = document.getElementById('copyEmailHint');
