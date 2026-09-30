@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TVS iQube Electric | Amruta J</title>
+<link rel="icon" type="image/png" href="AJ-Logo.png">
+<link rel="apple-touch-icon" href="AJ-Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:'Bricolage Grotesque Condensed';
+    src: url('BricolageGrotesque48ptCondensed-SemiBold.ttf') format('truetype');
+    font-weight:600;
+    font-style:normal;
+    font-display:swap;
+  }
+
+  :root{
+    --bg: #FAFAFA;
+    --surface: #FFFFFF;
+    --surface-2: #F1F0EE;
+    --heading: #1D1D1D;
+    --body-text: #4A4948;
+    --text-faint: #8C8B89;
+    --coral: #FF5C4D;
+    --line: rgba(29,29,29,0.09);
+
+    --font-heading: 'Bricolage Grotesque Condensed', 'Bricolage Grotesque', 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --h2: 42px;
+    --h3: 30px;
+    --h4: 24px;
+    --p1: 22px;
+    --p2: 16px;
+    --p3: 14px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--body-text);
+    font-family:var(--font-body);
+    font-size:var(--p2);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    cursor: url('coffee-cursor.svg') 4 12, auto;
+  }
+  a, button{ cursor: url('coffee-cursor.svg') 4 12, pointer; }
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--coral); color:#fff;}
+  :focus-visible{ outline:2px solid var(--coral); outline-offset:3px; }
+
+  h1,h2,h3{
+    font-family:var(--font-heading);
+    font-weight:600;
+    color:var(--heading);
+    letter-spacing:0.01em;
+    line-height:1.15;
+  }
+
+  /* ---------- Top nav ---------- */
+  .topnav{
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:1280px;
+    margin:0 auto;
+    padding: 3.5rem 8vw 0;
+  }
+  .logo-text{
+    font-family:var(--font-heading);
+    font-size:var(--h3);
+    font-weight:600;
+    color:var(--coral);
+    letter-spacing:0.01em;
+  }
+  .topnav nav{ display:flex; gap:2rem; }
+  .topnav nav a{
+    font-family:var(--font-body);
+    font-size:var(--p2); font-weight:500; color:var(--heading);
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition:border-color 0.2s ease;
+  }
+  .topnav nav a:hover{ border-color:var(--coral); color:var(--coral); }
+  .topnav nav a.nav-resume{ display:inline-flex; align-items:center; gap:0.35rem; }
+  .topnav nav a.nav-resume svg{ transition:transform 0.2s ease; }
+  .topnav nav a.nav-resume:hover svg{ transform:translate(2px,-2px); }
+
+  /* ---------- Project intro ---------- */
+  .project-intro{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 4.5rem 8vw 3rem;
+  }
+  .back-link{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:var(--p3); font-weight:500; color:var(--text-faint);
+    margin-bottom:2.4rem;
+    transition:color 0.2s ease;
+  }
+  .back-link svg{ transition:transform 0.2s ease; }
+  .back-link:hover{ color:var(--coral); }
+  .back-link:hover svg{ transform:translateX(-3px); }
+
+  .project-intro h1{
+    font-size:clamp(2.4rem, 5vw, 3.5rem);
+    line-height:1.04;
+    margin-bottom:1.2rem;
+  }
+  .project-intro .lede{
+    font-size:clamp(1.05rem, 1.6vw, 1.25rem);
+    color:var(--body-text);
+    max-width:58ch;
+  }
+
+  .project-meta{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:2rem;
+    margin-top:3rem;
+    padding-top:2rem;
+    border-top:1px solid var(--line);
+    max-width:900px;
+  }
+  .project-meta dt{
+    font-size:var(--p3); color:var(--text-faint);
+    margin-bottom:0.3rem;
+  }
+  .project-meta dd{
+    font-size:var(--p2); font-weight:500; color:var(--heading);
+  }
+
+  .skill-chips{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:2rem; }
+  .chip{
+    font-size:var(--p3); color:var(--body-text); background:var(--surface);
+    border:1px solid var(--line); padding:0.3rem 0.7rem; border-radius:20px;
+  }
+
+  /* ---------- Showcase ---------- */
+  .showcase{
+    max-width:1080px;
+    margin:0 auto;
+    padding: 0 8vw 5rem;
+  }
+  .showcase img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:12px;
+    background:var(--surface-2);
+  }
+
+  /* ---------- Next project ---------- */
+  .next-project{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 3rem 8vw 4rem;
+    border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap;
+  }
+  .next-project span{ font-size:var(--p3); color:var(--text-faint); display:block; margin-bottom:0.3rem; }
+  .next-project a.next-title{
+    font-family:var(--font-heading);
+    font-size:var(--h3); font-weight:600; color:var(--heading);
+    display:inline-flex; align-items:center; gap:0.8rem;
+    transition:color 0.2s ease;
+  }
+  .next-project a.next-title:hover{ color:var(--coral); }
+  .next-project .dot{
+    width:40px; height:40px; border-radius:50%;
+    background:var(--coral); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.25s ease;
+  }
+  .next-project a.next-title:hover .dot{ transform:translateX(4px); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 3.5rem 8vw 3rem;
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:2rem;
+    border-top:1px solid var(--line);
+  }
+  footer h2{ font-size:var(--h2); max-width:30ch; }
+  footer .contact-links{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; font-size:var(--p3); }
+  footer .footer-connect{ font-size:var(--p1); font-weight:500; color:var(--heading); margin-bottom:-0.5rem; }
+  footer .contact-email{ color:var(--coral); font-size:var(--p2); font-weight:500; }
+  footer .contact-email:hover{ opacity:0.8; }
+  footer .social-icons{ display:flex; align-items:center; gap:1.1rem; }
+  footer .social-icons a{
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:50%;
+    color:var(--heading);
+    border:1px solid var(--line);
+    transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  footer .social-icons a:hover{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  footer .foot-note{ width:100%; margin-top:3rem; font-size:var(--p3); color:var(--text-faint); letter-spacing:0.02em; }
+
+  @media (max-width: 860px){
+    .topnav{ padding:2rem 6vw 0; }
+    .topnav nav{ gap:1.4rem; }
+    .project-intro{ padding:3rem 6vw 2.4rem; }
+    .project-meta{ grid-template-columns:1fr; gap:1.2rem; }
+    .showcase{ padding:0 6vw 3.5rem; }
+    .next-project{ padding:2.4rem 6vw 3rem; }
+    footer{ padding:3rem 6vw 2.5rem; }
+    footer .contact-links{ align-items:flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a href="index.html" class="logo-text">Amruta J</a>
+  <nav>
+    <a href="about.html">About Me</a>
+    <a href="Amruta_J_Graphic_Designer.pdf" target="_blank" rel="noopener" class="nav-resume" aria-label="Resume (opens in a new tab)">
+      Resume
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </nav>
+</div>
+
+<section class="project-intro">
+  <a href="index.html#work" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All projects
+  </a>
+
+  <h1>TVS iQube Electric</h1>
+  <p class="lede">A playful, first-person campaign where the scooter speaks for itself. Each ad turns a smart feature, from regenerative braking to Q Park Assist and navigation, into a witty one-liner, set against a clean white and electric-blue system built for digital and social.</p>
+
+  <dl class="project-meta">
+    <div>
+      <dt>Client</dt>
+      <dd>TVS Motor Company</dd>
+    </div>
+    <div>
+      <dt>Scope</dt>
+      <dd>Key visual, digital ads, social campaign</dd>
+    </div>
+    <div>
+      <dt>Channels</dt>
+      <dd>Social media, digital advertising</dd>
+    </div>
+  </dl>
+
+  <div class="skill-chips">
+    <span class="chip">Key Visual</span><span class="chip">Campaign Design</span><span class="chip">Digital Advertising</span>
+  </div>
+</section>
+
+<section class="showcase">
+  <img src="https://raw.githubusercontent.com/amything/my-portfolio/main/iQube.webp"
+       alt="TVS iQube Electric campaign: key visual, a series of feature-led digital ads, social posts and a closing brand frame"
+       loading="lazy">
+</section>
+
+<section class="next-project">
+  <div>
+    <span>Next project</span>
+    <a href="toyota-urban-landcruiser.html" class="next-title">
+      Toyota Urban Cruiser
+      <span class="dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>From concept to creation,<br>let's make it happen.</h2>
+  <div class="contact-links">
+    <a class="footer-connect" href="mailto:amrutakj.inbox@gmail.com">Let's connect</a>
+    <a class="contact-email" href="mailto:amrutakj.inbox@gmail.com">amrutakj.inbox@gmail.com</a>
+    <div class="social-icons">
+      <a href="mailto:amrutakj.inbox@gmail.com" aria-label="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 5h18v14H3V5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/hello-amrutajadhav/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6.5 8.5H3.5V20H6.5V8.5Z" fill="currentColor"/><circle cx="5" cy="4.8" r="1.9" fill="currentColor"/><path d="M9.5 8.5H12.4V10.1C12.9 9.1 14.2 8.2 16 8.2C19.3 8.2 20.5 10.2 20.5 13.6V20H17.5V14.2C17.5 12.5 16.9 11.3 15.4 11.3C14.2 11.3 13.5 12.1 13.2 12.9C13.1 13.2 13.1 13.6 13.1 14V20H10.1C10.1 20 10.1 9.2 9.5 8.5Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.instagram.com/helloamything/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="5.5" width="19" height="13" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10.3 9.3v5.4l4.7-2.7-4.7-2.7Z" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="foot-note">© 2026 Amruta J. Australia.</div>
+</footer>
+
+</body>
+</html>
