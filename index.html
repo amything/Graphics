@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amruta J | Graphic & Campaign Designer
-Bold visual storytelling across advertising, retail and digital campaigns.</title>
+<title>TVS iQube Electric | Amruta J</title>
 <link rel="icon" type="image/png" href="AJ-Logo.png">
 <link rel="apple-touch-icon" href="AJ-Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,17 +26,14 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
     --body-text: #4A4948;
     --text-faint: #8C8B89;
     --coral: #FF5C4D;
-    --coral-dim: rgba(255,92,77,0.12);
     --line: rgba(29,29,29,0.09);
 
     --font-heading: 'Bricolage Grotesque Condensed', 'Bricolage Grotesque', 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
 
-    --h1: 56px;
     --h2: 42px;
     --h3: 30px;
     --h4: 24px;
-    --h5: 18px;
     --p1: 22px;
     --p2: 16px;
     --p3: 14px;
@@ -55,21 +51,18 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
     overflow-x:hidden;
     cursor: url('coffee-cursor.svg') 4 12, auto;
   }
-  a, button, [role="button"], input, textarea, select, label{
-    cursor: url('coffee-cursor.svg') 4 12, pointer;
-  }
+  a, button{ cursor: url('coffee-cursor.svg') 4 12, pointer; }
   a{color:inherit;text-decoration:none;}
   ::selection{background:var(--coral); color:#fff;}
   :focus-visible{ outline:2px solid var(--coral); outline-offset:3px; }
 
-  h1,h2,h3,h4,h5{
+  h1,h2,h3{
     font-family:var(--font-heading);
     font-weight:600;
     color:var(--heading);
     letter-spacing:0.01em;
     line-height:1.15;
   }
-  .h2{ font-size:var(--h2); }
 
   /* ---------- Top nav ---------- */
   .topnav{
@@ -92,348 +85,98 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
     padding-bottom:2px; border-bottom:1px solid transparent;
     transition:border-color 0.2s ease;
   }
-  .topnav nav a.current{ color:var(--coral); border-color:var(--coral); }
   .topnav nav a:hover{ border-color:var(--coral); color:var(--coral); }
-
-  /* Resume link: small arrow shows it opens in a new tab */
-  .topnav nav a.nav-resume{
-    display:inline-flex; align-items:center; gap:0.35rem;
-  }
+  .topnav nav a.nav-resume{ display:inline-flex; align-items:center; gap:0.35rem; }
   .topnav nav a.nav-resume svg{ transition:transform 0.2s ease; }
   .topnav nav a.nav-resume:hover svg{ transform:translate(2px,-2px); }
 
-  /* ---------- Hero ---------- */
-  .hero{
-    padding: 6rem 8vw 2rem;
+  /* ---------- Project intro ---------- */
+  .project-intro{
     max-width:1280px;
     margin:0 auto;
+    padding: 4.5rem 8vw 3rem;
   }
-  .eyebrow{
-    font-family:var(--font-body);
-    font-size:var(--p1);
-    font-weight:600;
-    color:var(--coral);
-    margin-bottom:0.6rem;
+  .back-link{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:var(--p3); font-weight:500; color:var(--text-faint);
+    margin-bottom:2.4rem;
+    transition:color 0.2s ease;
   }
-  h1.headline{
-    max-width:none;
-    font-family:var(--font-heading);
-    font-size:clamp(1.9rem, 2.7vw, 2.15rem);
-    font-weight:600;
-    letter-spacing:0.01em;
+  .back-link svg{ transition:transform 0.2s ease; }
+  .back-link:hover{ color:var(--coral); }
+  .back-link:hover svg{ transform:translateX(-3px); }
+
+  .project-intro h1{
+    font-size:clamp(2.4rem, 5vw, 3.5rem);
     line-height:1.04;
+    margin-bottom:1.2rem;
   }
-  h1.headline .headline-line{
-    display:block;
-  }
-  h1.headline .headline-line + .headline-line{
-    margin-top:0.4em;
-  }
-  h1.headline .headline-line.sub{
-    font-size: 0.55em;
-    font-weight: 500;
-    color: var(--body-text);
-  }
-  @media (min-width:861px){
-    h1.headline .headline-line{
-      white-space:nowrap;
-    }
-  }
-  .hero-cta{
-    margin-top:2.8rem;
-    display:inline-flex; align-items:center; gap:1rem;
-    font-family:var(--font-body);
-    font-size:var(--p1); font-weight:500;
-    color:var(--heading);
-    cursor:pointer;
-  }
-  .hero-cta .dot{
-    width:40px; height:40px; border-radius:50%;
-    background:var(--coral);
-    display:flex; align-items:center; justify-content:center;
-    color:#fff;
-    transition:transform 0.25s ease;
-  }
-  .hero-cta:hover .dot{ transform:translateX(4px); }
-
-  /* ---------- Copy-email hint + toast ---------- */
-  .copy-hint{
-    margin-top:1.6rem;
-    display:flex; align-items:center; gap:0.6rem;
-    width:fit-content;
-    font-family:var(--font-body);
-    font-size:var(--p3);
-    color:var(--text-faint);
-    cursor:pointer;
-    user-select:none;
-    background:none; border:none; padding:0;
-  }
-  .copy-hint kbd{
-    font-family:var(--font-body);
-    font-size:12px; font-weight:600;
-    color:var(--heading);
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-bottom-width:2px;
-    border-radius:6px;
-    padding:0.15rem 0.5rem;
-    line-height:1.4;
-  }
-  .copy-hint:hover{ color:var(--heading); }
-  .copy-hint:hover kbd{ border-color:var(--coral); color:var(--coral); }
-
-  .toast{
-    position:fixed;
-    left:50%;
-    bottom:2.4rem;
-    transform:translate(-50%, 20px);
-    display:flex; align-items:center; gap:0.7rem;
-    background:var(--heading);
-    color:#fff;
-    font-family:var(--font-body);
-    font-size:var(--p3);
-    font-weight:500;
-    padding:0.85rem 1.2rem;
-    border-radius:10px;
-    box-shadow:0 12px 30px rgba(0,0,0,0.18);
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 0.25s ease, transform 0.25s ease;
-    z-index:999;
-  }
-  .toast.show{
-    opacity:1;
-    transform:translate(-50%, 0);
-  }
-  .toast .toast-icon{
-    width:18px; height:18px;
-    border-radius:50%;
-    background:var(--coral);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
+  .project-intro .lede{
+    font-size:clamp(1.05rem, 1.6vw, 1.25rem);
+    color:var(--body-text);
+    max-width:58ch;
   }
 
-  /* ---------- Client logos row ---------- */
-  .clients{
-    max-width:1280px;
-    margin:0 auto;
-    padding: 2.4rem 8vw 2.4rem;
-    border-bottom:1px solid var(--line);
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
-    display:flex;
+  .project-meta{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:2rem;
+    margin-top:3rem;
+    padding-top:2rem;
+    border-top:1px solid var(--line);
+    max-width:900px;
   }
-  .clients::-webkit-scrollbar{ display:none; }
-  .clients-track{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:nowrap;
-    width:100%;
-    gap:2.6rem;
-    flex-shrink:0;
-    animation:none;
+  .project-meta dt{
+    font-size:var(--p3); color:var(--text-faint);
+    margin-bottom:0.3rem;
   }
-  .clients-track[aria-hidden="true"]{ display:none; }
-  @keyframes clients-scroll {
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-100%); }
-  }
-  .client-card{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex:0 0 auto;
-  }
-  .clients img{
-    height:92px;
-    width:auto;
-    max-width:240px;
-    object-fit:contain;
-    opacity:0.75;
-    filter:grayscale(100%);
-    transition:opacity 0.25s ease, filter 0.25s ease;
-    flex-shrink:0;
-  }
-  .clients img:hover{ opacity:1; filter:grayscale(0%); }
-  .clients img.logo-boost{
-    height:118px;
-    max-width:290px;
+  .project-meta dd{
+    font-size:var(--p2); font-weight:500; color:var(--heading);
   }
 
-  @media (max-width: 860px){
-    .clients{
-      padding: 1.5rem 0 1.5rem;
-      overflow-x:hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8vw, #000 92%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0, #000 8vw, #000 92%, transparent 100%);
-    }
-    .clients-track{
-      justify-content:flex-start;
-      width:max-content;
-      gap:2.4rem;
-      padding-right:2.4rem;
-      animation:clients-scroll 14s linear infinite;
-    }
-    .clients:hover .clients-track{ animation-play-state:paused; }
-    .clients-track[aria-hidden="true"]{ display:flex; }
-    .clients img{
-      height:44px;
-      width:auto;
-      max-width:85px;
-    }
-    .clients img.logo-boost{
-      height:56px;
-      max-width:105px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .clients-track{ animation:none; }
-  }
-
-  /* ---------- Selected campaigns grid ---------- */
-  main{
-    max-width:1280px;
-    margin:0 auto;
-    padding: 0 8vw;
-  }
-  section.era-heading{ padding: 3.5rem 0 1.5rem; max-width:60ch; }
-  section.era-heading h2{
-    font-family:var(--font-body); font-weight:600;
-    font-size:15px; letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--coral);
-    margin-bottom:0.7rem;
-  }
-  .pair-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:2.4rem 2.4rem;
-    padding-bottom:4rem;
-  }
-  .pair-card{
-    display:flex; flex-direction:column;
-    cursor:pointer;
-    padding:1rem;
-    margin:-1rem;
-    border-radius:16px;
-    transition:background-color 0.3s ease;
-  }
-  .pair-card:hover{ background:var(--surface-2); }
-  .pair-card .pair-visual{
-    aspect-ratio: 4/3; border-radius:8px; overflow:hidden;
-    background:var(--surface-2);
-    margin-bottom:1.4rem;
-  }
-  .pair-card .pair-visual img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .pair-card h3{ font-size:var(--h4); margin-bottom:0.8rem; }
-  .pair-card p.desc{ font-family:var(--font-body); color:var(--body-text); font-size:var(--p2); max-width:48ch; margin-bottom:1.3rem; }
-  .skill-chips{ display:flex; flex-wrap:wrap; gap:0.5rem; }
+  .skill-chips{ display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:2rem; }
   .chip{
-    font-family:var(--font-body); font-size:var(--p3); color:var(--body-text); background:var(--surface);
+    font-size:var(--p3); color:var(--body-text); background:var(--surface);
     border:1px solid var(--line); padding:0.3rem 0.7rem; border-radius:20px;
   }
-  @media (max-width: 860px){
-    .pair-grid{ grid-template-columns:1fr; gap:2.2rem; }
-  }
 
-  /* ---------- Testimonials (3-card) ---------- */
-  .testimonials{
-    position:relative;
-    background:var(--bg);
-    padding:8rem 8vw 4rem;
-    border-top:1px solid var(--line);
-    overflow:hidden;
+  /* ---------- Showcase ---------- */
+  .showcase{
+    max-width:1080px;
+    margin:0 auto;
+    padding: 0 8vw 5rem;
   }
-  .testi-row{
-    position:relative; z-index:1;
-    max-width:1140px; margin:0 auto;
-    display:flex; align-items:center; justify-content:center;
-    gap:1.6rem;
-  }
-  .testi-card-shell{
-    border-radius:26px;
-    background:var(--surface);
-    box-shadow:0 24px 60px -20px rgba(29,29,29,0.10);
-    transition:filter 0.6s ease, opacity 0.6s ease, transform 0.6s ease, flex-basis 0.6s ease;
-  }
-  .testi-card-shell.active{
-    position:relative;
-    flex:0 0 42%;
-    max-width:560px;
-    padding:3.4rem 3rem;
-    filter:blur(0);
-    opacity:1;
-    transform:scale(1);
-    z-index:2;
-  }
-  .testi-card-shell.side{
-    flex:0 0 24%;
-    max-width:250px;
-    padding:2rem 1.6rem;
-    filter:blur(3px);
-    opacity:0.5;
-    transform:scale(0.88);
-    cursor:pointer;
-  }
-  .testi-card-shell.side:hover{ filter:blur(1.5px); opacity:0.75; }
-  .testi-card-shell.side .testi-quote-mark{ font-size:1.5rem; margin-bottom:0.3rem; }
-  .testi-card-shell.side .testi-quote{
-    font-size:0.85rem; line-height:1.55;
-    display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden;
-  }
-  .testi-card-shell.side .testi-meta{ margin-top:1.2rem; }
-  .testi-card-shell.side .testi-avatar{ width:30px; height:30px; font-size:8px; margin-bottom:0.5rem; }
-  .testi-card-shell.side .testi-name{ font-size:11px; }
-  .testi-card-shell.side .testi-role{ font-size:8.5px; }
-
-  .testi-quote-mark{
+  .showcase img{
     display:block;
-    font-family:Georgia, 'Times New Roman', serif;
-    line-height:1;
-    color:var(--coral);
-    opacity:0.55;
-    font-weight:400;
-    font-size:2.2rem;
-    margin-bottom:0.6rem;
-  }
-  .testi-quote{
-    font-family:var(--font-body);
-    font-weight:400;
-    font-size:clamp(1.1rem, 1.7vw, 1.32rem);
-    line-height:1.65;
-    letter-spacing:0.002em;
-    color:var(--heading);
-    text-align:center;
-  }
-  .testi-meta{
-    margin-top:2rem;
-    display:flex; flex-direction:column; align-items:center;
-  }
-  .testi-avatar{
-    width:38px; height:38px; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-body); font-weight:600; font-size:10px;
-    color:var(--heading);
-    background:rgba(255,255,255,0.7);
-    border:1px solid rgba(255,255,255,0.9);
-    box-shadow:0 4px 10px rgba(29,29,29,0.06);
-    margin-bottom:0.8rem;
-  }
-  .testi-name{ font-size:var(--p3); font-weight:600; color:var(--heading); letter-spacing:0.01em; text-align:center; }
-  .testi-role{
-    font-size:10px; font-weight:500; color:var(--text-faint);
-    text-transform:uppercase; letter-spacing:0.09em;
-    margin-top:0.3rem;
-    text-align:center;
+    width:100%;
+    height:auto;
+    border-radius:12px;
+    background:var(--surface-2);
   }
 
-  .testi-dots{ position:relative; z-index:1; display:flex; justify-content:center; gap:0.5rem; margin-top:2.8rem; }
-  .testi-dot{
-    width:6px; height:6px; border-radius:3px; padding:0;
-    border:none; background:rgba(29,29,29,0.18); cursor:pointer;
-    transition:all 0.35s ease;
+  /* ---------- Next project ---------- */
+  .next-project{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 3rem 8vw 4rem;
+    border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; gap:1.5rem; flex-wrap:wrap;
   }
-  .testi-dot.active{ background:var(--coral); width:18px; }
+  .next-project span{ font-size:var(--p3); color:var(--text-faint); display:block; margin-bottom:0.3rem; }
+  .next-project a.next-title{
+    font-family:var(--font-heading);
+    font-size:var(--h3); font-weight:600; color:var(--heading);
+    display:inline-flex; align-items:center; gap:0.8rem;
+    transition:color 0.2s ease;
+  }
+  .next-project a.next-title:hover{ color:var(--coral); }
+  .next-project .dot{
+    width:40px; height:40px; border-radius:50%;
+    background:var(--coral); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform 0.25s ease;
+  }
+  .next-project a.next-title:hover .dot{ transform:translateX(4px); }
 
   /* ---------- Footer ---------- */
   footer{
@@ -445,9 +188,8 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
     border-top:1px solid var(--line);
   }
   footer h2{ font-size:var(--h2); max-width:30ch; }
-  footer .contact-links{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; font-family:var(--font-body); font-size:var(--p3); }
-  footer .hero-cta{ margin-top:0; }
-  footer .hero-cta.footer-connect{ margin-bottom:-0.5rem; }
+  footer .contact-links{ display:flex; flex-direction:column; align-items:flex-end; gap:1rem; font-size:var(--p3); }
+  footer .footer-connect{ font-size:var(--p1); font-weight:500; color:var(--heading); margin-bottom:-0.5rem; }
   footer .contact-email{ color:var(--coral); font-size:var(--p2); font-weight:500; }
   footer .contact-email:hover{ opacity:0.8; }
   footer .social-icons{ display:flex; align-items:center; gap:1.1rem; }
@@ -459,29 +201,28 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
     transition:background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   }
   footer .social-icons a:hover{ background:var(--coral); border-color:var(--coral); color:#fff; }
-  footer .foot-note{ width:100%; margin-top:3rem; font-family:var(--font-body); font-size:var(--p3); color:var(--text-faint); letter-spacing:0.02em; }
+  footer .foot-note{ width:100%; margin-top:3rem; font-size:var(--p3); color:var(--text-faint); letter-spacing:0.02em; }
 
   @media (max-width: 860px){
     .topnav{ padding:2rem 6vw 0; }
     .topnav nav{ gap:1.4rem; }
-    .hero{ padding:4rem 6vw 3rem; }
-    main{ padding:0 6vw; }
-    .testimonials{ padding:4.5rem 6vw; }
-    .testi-card-shell.side{ display:none; }
-    .testi-card-shell.active{ flex:1 1 100%; max-width:none; padding:2.4rem 1.8rem; border-radius:22px; }
-    footer{ align-items:flex-start; }
+    .project-intro{ padding:3rem 6vw 2.4rem; }
+    .project-meta{ grid-template-columns:1fr; gap:1.2rem; }
+    .showcase{ padding:0 6vw 3.5rem; }
+    .next-project{ padding:2.4rem 6vw 3rem; }
+    footer{ padding:3rem 6vw 2.5rem; }
     footer .contact-links{ align-items:flex-start; }
   }
 
   @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+    *{ transition-duration:0.01ms !important; scroll-behavior:auto !important; }
   }
 </style>
 </head>
 <body>
 
 <div class="topnav">
-  <div class="logo-text">Amruta J</div>
+  <a href="index.html" class="logo-text">Amruta J</a>
   <nav>
     <a href="about.html">About Me</a>
     <a href="Amruta_J_Graphic_Designer.pdf" target="_blank" rel="noopener" class="nav-resume" aria-label="Resume (opens in a new tab)">
@@ -493,153 +234,59 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
   </nav>
 </div>
 
-<section class="hero">
-  <h1 class="headline">
-    <span class="headline-line">Graphic &amp; Campaign Designer</span>
-    <span class="headline-line sub">Bold visual storytelling across advertising, retail and digital campaigns.</span>
-  </h1>
-  <button class="copy-hint" id="copyEmailHint" type="button">
-    Press <kbd>C</kbd> to copy my email
-  </button>
+<section class="project-intro">
+  <a href="index.html#work" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M19 12H5M5 12L11 6M5 12L11 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    All projects
+  </a>
+
+  <h1>TVS iQube Electric</h1>
+  <p class="lede">A playful, first-person campaign where the scooter speaks for itself. Each ad turns a smart feature, from regenerative braking to Q Park Assist and navigation, into a witty one-liner, set against a clean white and electric-blue system built for digital and social.</p>
+
+  <dl class="project-meta">
+    <div>
+      <dt>Client</dt>
+      <dd>TVS Motor Company</dd>
+    </div>
+    <div>
+      <dt>Scope</dt>
+      <dd>Key visual, digital ads, social campaign</dd>
+    </div>
+    <div>
+      <dt>Channels</dt>
+      <dd>Social media, digital advertising</dd>
+    </div>
+  </dl>
+
+  <div class="skill-chips">
+    <span class="chip">Key Visual</span><span class="chip">Campaign Design</span><span class="chip">Digital Advertising</span>
+  </div>
 </section>
 
-<div class="toast" id="emailToast">
-  <span class="toast-icon">
-    <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </span>
-  <span id="toastText">Email address copied</span>
-</div>
+<section class="showcase">
+  <img src="iQube.webp"
+       alt="TVS iQube Electric campaign: key visual, a series of feature-led digital ads, social posts and a closing brand frame"
+       loading="lazy">
+</section>
 
-<div class="clients">
-  <div class="clients-track">
-    <div class="client-card"><img src="Emma-Sleep.png" alt="Emma Sleep"></div>
-    <div class="client-card"><img src="amazon.png" alt="Amazon"></div>
-    <div class="client-card"><img src="Safari.png" alt="Safari"></div>
-    <div class="client-card"><img src="AstraZenca.png" alt="AstraZeneca" class="logo-boost"></div>
-    <div class="client-card"><img src="jbl.png" alt="JBL"></div>
-    <div class="client-card"><img src="Harman-Kardon-logo.png" alt="Harman Kardon" class="logo-boost"></div>
-  </div>
-  <div class="clients-track" aria-hidden="true">
-    <div class="client-card"><img src="Emma-Sleep.png" alt="" aria-hidden="true"></div>
-    <div class="client-card"><img src="amazon.png" alt="" aria-hidden="true"></div>
-    <div class="client-card"><img src="Safari.png" alt="" aria-hidden="true"></div>
-    <div class="client-card"><img src="AstraZenca.png" alt="" aria-hidden="true" class="logo-boost"></div>
-    <div class="client-card"><img src="jbl.png" alt="" aria-hidden="true"></div>
-    <div class="client-card"><img src="Harman-Kardon-logo.png" alt="" aria-hidden="true" class="logo-boost"></div>
-  </div>
-</div>
-
-<main>
-  <section class="era-heading" id="work">
-    <h2>Selected campaigns</h2>
-  </section>
-
-  <div class="pair-grid">
-
-    <div class="pair-card" data-href="toyota-urban-landcruiser.html">
-      <div class="pair-visual">
-        <img src="https://raw.githubusercontent.com/amything/my-portfolio/main/Toyota%20Mockup.jpg" alt="Toyota Urban Cruiser campaign">
-      </div>
-      <h3>Toyota Urban Cruiser</h3>
-      <p class="desc">Designed an adventure-led automotive campaign that brought the Urban Cruiser's design, performance and personality to life.</p>
-      <div class="skill-chips">
-        <span class="chip">Visual Design</span><span class="chip">Campaign Design</span><span class="chip">Digital Experience</span>
-      </div>
-    </div>
-
-    <div class="pair-card" data-href="harman-kardon.html">
-      <div class="pair-visual">
-        <img src="https://raw.githubusercontent.com/amything/my-portfolio/main/Harmon%20Kardon_Mockup.png" alt="Harman Kardon campaign cover">
-      </div>
-      <h3>Harman Kardon</h3>
-      <p class="desc">Developed a refined campaign language that reflected Harman Kardon's craftsmanship, performance and premium sound.</p>
-      <div class="skill-chips">
-        <span class="chip">Art Direction</span><span class="chip">Campaign Design</span><span class="chip">Visual Design</span>
-      </div>
-    </div>
-
-    <div class="pair-card" data-href="sterling-holidays.html">
-      <div class="pair-visual">
-        <img src="https://raw.githubusercontent.com/amything/my-portfolio/main/Sterling%20Holiday%20Thumbnail.png" alt="Sterling Holidays campaign">
-      </div>
-      <h3>Sterling Holidays</h3>
-      <p class="desc">Created campaign concepts and branded content designed to inspire discovery across print, digital and social channels.</p>
-      <div class="skill-chips">
-        <span class="chip">Art Direction</span><span class="chip">Campaign Design</span><span class="chip">Print &amp; Digital</span>
-      </div>
-    </div>
-
-    <div class="pair-card" data-href="jbl.html">
-      <div class="pair-visual">
-        <img src="https://raw.githubusercontent.com/amything/my-portfolio/main/JBL_Mockup.png" alt="JBL campaign artwork">
-      </div>
-      <h3>JBL</h3>
-      <p class="desc">Created bold, high-energy campaign visuals for JBL across social media, digital advertising and retail touchpoints.</p>
-      <div class="skill-chips">
-        <span class="chip">Visual Design</span><span class="chip">Campaign Design</span><span class="chip">Social &amp; Retail</span>
-      </div>
-    </div>
-
-    <div class="pair-card" data-href="tvs-iqube.html">
-      <div class="pair-visual">
-        <img src="https://raw.githubusercontent.com/amything/my-portfolio/main/046-IQube.jpg" alt="TVS iQube Electric campaign key visual">
-      </div>
-      <h3>TVS iQube Electric</h3>
-      <p class="desc">Crafted a clean, future-forward key visual for TVS's electric scooter, showcasing its sleek design and smart urban mobility.</p>
-      <div class="skill-chips">
-        <span class="chip">Key Visual</span><span class="chip">Campaign Design</span><span class="chip">Digital Advertising</span>
-      </div>
-    </div>
-
-  </div>
-</main>
-
-<section class="testimonials">
-  <div class="testi-row">
-    <div class="testi-card-shell side" id="testiCardPrev">
-      <span class="testi-quote-mark">&#8220;</span>
-      <p class="testi-quote"></p>
-      <div class="testi-meta">
-        <div class="testi-avatar"></div>
-        <div class="testi-name"></div>
-        <div class="testi-role"></div>
-      </div>
-    </div>
-
-    <div class="testi-card-shell active" id="testiCardActive">
-      <span class="testi-quote-mark">&#8220;</span>
-      <p class="testi-quote"></p>
-      <div class="testi-meta">
-        <div class="testi-avatar"></div>
-        <div class="testi-name"></div>
-        <div class="testi-role"></div>
-      </div>
-    </div>
-
-    <div class="testi-card-shell side" id="testiCardNext">
-      <span class="testi-quote-mark">&#8220;</span>
-      <p class="testi-quote"></p>
-      <div class="testi-meta">
-        <div class="testi-avatar"></div>
-        <div class="testi-name"></div>
-        <div class="testi-role"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="testi-dots">
-    <button class="testi-dot active" data-index="0" aria-label="Testimonial 1"></button>
-    <button class="testi-dot" data-index="1" aria-label="Testimonial 2"></button>
-    <button class="testi-dot" data-index="2" aria-label="Testimonial 3"></button>
+<section class="next-project">
+  <div>
+    <span>Next project</span>
+    <a href="toyota-urban-landcruiser.html" class="next-title">
+      Toyota Urban Cruiser
+      <span class="dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </a>
   </div>
 </section>
 
 <footer id="contact">
   <h2>From concept to creation,<br>let's make it happen.</h2>
   <div class="contact-links">
-    <a class="hero-cta footer-connect" href="mailto:amrutakj.inbox@gmail.com">
-      Let's connect
-    </a>
+    <a class="footer-connect" href="mailto:amrutakj.inbox@gmail.com">Let's connect</a>
     <a class="contact-email" href="mailto:amrutakj.inbox@gmail.com">amrutakj.inbox@gmail.com</a>
     <div class="social-icons">
       <a href="mailto:amrutakj.inbox@gmail.com" aria-label="Email">
@@ -658,123 +305,6 @@ Bold visual storytelling across advertising, retail and digital campaigns.</titl
   </div>
   <div class="foot-note">© 2026 Amruta J. Australia.</div>
 </footer>
-
-<script>
-  // Each campaign card is independently clickable via its data-href
-  document.querySelectorAll('.pair-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const href = card.dataset.href || '#';
-      if(href !== '#') window.location.href = href;
-    });
-  });
-
-  /* ---------- Testimonials carousel (glass 3-card) ---------- */
-  const testiData = [
-    {
-      quote:"Amruta is one of the most talented designers I've had in my team at Dentsu. Her visual instincts and clarity of thought elevate every campaign she touches.",
-      name:'Praveen Sekar', role:'Group Creative Director, Dentsu', initials:'PS'
-    },
-    {
-      quote:"Working with Amruta was a great experience. Her creativity, craft and attention to detail brought our campaign visuals to life.",
-      name:'Jaffar Syed', role:'Head of Digital Marketing, Immi Smart', initials:'JS'
-    },
-    {
-      quote:"Amruta delivered an exceptional body of work that meaningfully elevated our brand. She was highly communicative, reliable, and unwavering in delivering on time.",
-      name:'Garry', role:'Founder, Mother Cow Dairy', initials:'G'
-    }
-  ];
-
-  const testiDots = Array.from(document.querySelectorAll('.testi-dot'));
-  const cardPrev = document.getElementById('testiCardPrev');
-  const cardActive = document.getElementById('testiCardActive');
-  const cardNext = document.getElementById('testiCardNext');
-  let testiIndex = 0;
-  let testiTimer;
-
-  function fillCard(el, item){
-    el.querySelector('.testi-quote').textContent = item.quote;
-    el.querySelector('.testi-avatar').textContent = item.initials;
-    el.querySelector('.testi-name').textContent = item.name;
-    el.querySelector('.testi-role').textContent = item.role;
-  }
-
-  function renderTesti(){
-    const len = testiData.length;
-    fillCard(cardPrev, testiData[(testiIndex - 1 + len) % len]);
-    fillCard(cardActive, testiData[testiIndex]);
-    fillCard(cardNext, testiData[(testiIndex + 1) % len]);
-    testiDots.forEach((d, idx) => d.classList.toggle('active', idx === testiIndex));
-  }
-
-  function goToTesti(i){
-    testiIndex = (i + testiData.length) % testiData.length;
-    renderTesti();
-  }
-
-  function startTestiTimer(){
-    clearInterval(testiTimer);
-    testiTimer = setInterval(() => goToTesti(testiIndex + 1), 6000);
-  }
-
-  if(cardActive){
-    renderTesti();
-    testiDots.forEach(dot => {
-      dot.addEventListener('click', () => { goToTesti(Number(dot.dataset.index)); startTestiTimer(); });
-    });
-    cardPrev.addEventListener('click', () => { goToTesti(testiIndex - 1); startTestiTimer(); });
-    cardNext.addEventListener('click', () => { goToTesti(testiIndex + 1); startTestiTimer(); });
-    startTestiTimer();
-  }
-
-  // ---------- Press "C" (or click the hint) to copy email address ----------
-  const EMAIL = 'amrutakj.inbox@gmail.com';
-  const toast = document.getElementById('emailToast');
-  const toastText = document.getElementById('toastText');
-  const copyHint = document.getElementById('copyEmailHint');
-  let toastTimer;
-
-  function showToast(message){
-    toastText.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
-  }
-
-  function copyEmail(){
-    const done = () => showToast('Email address copied: ' + EMAIL);
-    const fail = () => showToast('Could not copy: ' + EMAIL);
-
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(EMAIL).then(done).catch(fail);
-    } else {
-      const temp = document.createElement('textarea');
-      temp.value = EMAIL;
-      temp.style.position = 'fixed';
-      temp.style.opacity = '0';
-      document.body.appendChild(temp);
-      temp.select();
-      try{
-        document.execCommand('copy');
-        done();
-      } catch(err){
-        fail();
-      }
-      document.body.removeChild(temp);
-    }
-  }
-
-  copyHint.addEventListener('click', copyEmail);
-
-  document.addEventListener('keydown', (e) => {
-    const tag = (e.target.tagName || '').toLowerCase();
-    const isTyping = tag === 'input' || tag === 'textarea' || e.target.isContentEditable;
-    if(isTyping || e.metaKey || e.ctrlKey || e.altKey) return;
-
-    if(e.key.toLowerCase() === 'c'){
-      copyEmail();
-    }
-  });
-</script>
 
 </body>
 </html>
